@@ -48,20 +48,20 @@ int main(){
     int s1, s2, s3, s4, s5, s6, s7, s8; 
     int s9,s10,s11,s12,s13,s14,s15,s16;
     int m1, m2, m3, m4,m5,m6,m7,m8, q1, q2;
-    int N = 10; // ¤Á N ­Ó®æ¤l
+    int N = 10; 
     int Error_vector[2][n]={0};
     int xe[1]={2}   ; // sigle error by user , X, Z, Y = 2, 3, 4
     int ze[1]={3}   ; // sigle error by user , X, Z, Y = 2, 3, 4
     double Display_p[N], Display_e[N];
     
     double Gamma = 0; // gamma = error memory rate of idle qubits / gate error rate
-	double beta = 1; 
+    double beta = 1; 
     
     cout << "[[9,1,3]] parallel, memeory threshold, Algorithm 3" << " ,loop=" << N-1 << " ,gamma=" << Gamma << endl << endl << endl;
     
     for(int i=1; i<N; i++){
         probability = 0.0001+0.0001*(i-1)*(i*i/2); 
-		Total_number = 0; // 
+	Total_number = 0; // 
         Error_number = 0; // 
         while(Total_number< 100000000){
             s1 = 0;
