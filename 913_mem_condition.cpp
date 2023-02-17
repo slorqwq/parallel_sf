@@ -48,7 +48,7 @@ int main(){
     int s1, s2, s3, s4, s5, s6, s7, s8; 
     int s9,s10,s11,s12,s13,s14,s15,s16;
     int m1, m2, m3, m4,m5,m6,m7,m8, q1, q2;
-    int N = 10; // ¤Á N ­Ó®æ¤l
+    int N = 10; // åˆ‡ N å€‹æ ¼å­
     int Error_vector[2][n]={0};
     int xe[1]={2}   ; // sigle error by user , X, Z, Y = 2, 3, 4
     int ze[1]={3}   ; // sigle error by user , X, Z, Y = 2, 3, 4
@@ -62,9 +62,9 @@ int main(){
     for(int i=1; i<N; i++){
         //probability = 0.0001+0.0001*(i); // gamma=1 ; N=4
         probability = 0.0001+0.0001*(i-1)*(i*i/2); // gamma=1 ; N=4
-		Total_number = 0; // Á`¦@°õ¦æ¹q¸ôªº¦¸¼Æ
-        Error_number = 0; // ´ú¨ì¬O¹q¸ôªº output ¬O malignant pairªº¦¸¼Æ
-      // while(Total_number<6000000||Error_number<30){ // Error_number  ¼Æ¶q
+	Total_number = 0; // ç¸½å…±åŸ·è¡Œé›»è·¯çš„æ¬¡æ•¸
+        Error_number = 0; // æ¸¬åˆ°æ˜¯é›»è·¯çš„ output æ˜¯ malignant pairçš„æ¬¡æ•¸
+      // while(Total_number<6000000||Error_number<30){ // Error_number  æ•¸é‡
         while(Total_number< 100000000){
             s1 = 0;
             s2 = 0;
@@ -98,7 +98,7 @@ int main(){
    			c_time_string = ctime(&current_time);
             //*************************************
             for(int i=0; i<2; i++){
-                for(int j=0; j<n; j++)	Error_vector[i][j] = 0; // ¦b¶i¤J·sªº¹q¸ô¤§«e, ±Nerror vectorÂk¹s (²Ä¤@¦C: ¬ö¿ı X error, ²Ä¤G¦C: ¬ö¿ı Z error)
+                for(int j=0; j<n; j++)	Error_vector[i][j] = 0; // åœ¨é€²å…¥æ–°çš„é›»è·¯ä¹‹å‰, å°‡error vectoræ­¸é›¶ (ç¬¬ä¸€åˆ—: ç´€éŒ„ X error, ç¬¬äºŒåˆ—: ç´€éŒ„ Z error)
             }
 
      
@@ -118,7 +118,7 @@ int main(){
 			if ( m1==1 || m2==1 || m3==1 || m4==1 || m5==1 || m6==1 ){
 				
 				for(int i=0; i<2; i++){
-                	for(int j=9; j<n; j++)	Error_vector[i][j] = 0; // ¦b¶i¤J·sªº¹q¸ô¤§«e, ±Nerror vectorÂk¹s (²Ä¤@¦C: ¬ö¿ı X error, ²Ä¤G¦C: ¬ö¿ı Z error)
+                	for(int j=9; j<n; j++)	Error_vector[i][j] = 0; // åœ¨é€²å…¥æ–°çš„é›»è·¯ä¹‹å‰, å°‡error vectoræ­¸é›¶ (ç¬¬ä¸€åˆ—: ç´€éŒ„ X error, ç¬¬äºŒåˆ—: ç´€éŒ„ Z error)
             	}
             unflagged(Error_vector, probability, Gamma, beta );		
 			}
@@ -212,13 +212,13 @@ int main(){
 //---Perfect circuit----------------------------------------------------------------------------------------------------
 	
      		for(int i=0; i<2; i++){
-                for(int j=9; j<n; j++)	Error_vector[i][j] = 0; // ¦b¶i¤J·sªº¹q¸ô¤§«e, ±Nerror vectorÂk¹s (²Ä¤@¦C: ¬ö¿ı X error, ²Ä¤G¦C: ¬ö¿ı Z error)
+                for(int j=9; j<n; j++)	Error_vector[i][j] = 0; // åœ¨é€²å…¥æ–°çš„é›»è·¯ä¹‹å‰, å°‡error vectoræ­¸é›¶ (ç¬¬ä¸€åˆ—: ç´€éŒ„ X error, ç¬¬äºŒåˆ—: ç´€éŒ„ Z error)
             }
 
 			perfect(Error_vector );	
                 
 
-		// ±Æ°£stabilzer & degenerate error	
+		// æ’é™¤stabilzer & degenerate error	
 	        s1 = ( Error_vector[0][0] * 1  + Error_vector[0][1] * 1 + Error_vector[0][2] * 0 + Error_vector[0][3] * 0 + Error_vector[0][4] * 0 + Error_vector[0][5] * 0 + Error_vector[0][6] * 0 + Error_vector[0][7] * 0 + Error_vector[0][8] * 0 )%2   ;
             s2 = ( Error_vector[0][0] * 0  + Error_vector[0][1] * 1 + Error_vector[0][2] * 1 + Error_vector[0][3] * 0 + Error_vector[0][4] * 0 + Error_vector[0][5] * 0 + Error_vector[0][6] * 0 + Error_vector[0][7] * 0 + Error_vector[0][8] * 0 )%2   ;
             s3 = ( Error_vector[0][0] * 0  + Error_vector[0][1] * 0 + Error_vector[0][2] * 0 + Error_vector[0][3] * 1 + Error_vector[0][4] * 1 + Error_vector[0][5] * 0 + Error_vector[0][6] * 0 + Error_vector[0][7] * 0 + Error_vector[0][8] * 0 )%2   ;
@@ -245,7 +245,7 @@ int main(){
 				goto ckp3;
 			}	
 					
-		//±Æ°£logci X, logic Z 
+		//æ’é™¤logci X, logic Z 
 			q1  = ( Error_vector[0][0] * 1  + Error_vector[0][1] * 1 + Error_vector[0][2] * 1 + Error_vector[0][3] * 1 + Error_vector[0][4] * 1 + Error_vector[0][5] * 1 + Error_vector[0][6] * 1 + Error_vector[0][7] * 1 + Error_vector[0][8] * 1 )%2   ;
             q2 = ( Error_vector[1][0] * 1  + Error_vector[1][1] * 1 + Error_vector[1][2] * 1 + Error_vector[1][3] * 1 + Error_vector[1][4] * 1 + Error_vector[1][5] * 1 + Error_vector[1][6] * 1 + Error_vector[1][7] * 1 + Error_vector[1][8] * 1 )%2   ;
 	      
@@ -301,15 +301,15 @@ int main(){
 int correct(int (*Error_vector)[n], int a, int B){
 	a = a - 1;
 	if( B==2 ){
-		*(*(Error_vector+0)+a) = (*(*(Error_vector+0)+a) + 1)%2;   // X error®É ,¦A¸Óqubit¸É¤W¤@­Óerror count
+		*(*(Error_vector+0)+a) = (*(*(Error_vector+0)+a) + 1)%2;   // X erroræ™‚ ,å†è©²qubitè£œä¸Šä¸€å€‹error count
 	//	cout << "X error on " << a+1 << endl;
 	}
 	if( B==3 ){
-		*(*(Error_vector+1)+a) = (*(*(Error_vector+1)+a) + 1)%2;    // Z error®É,¦A¸Óqubit¸É¤W¤@­Óerror count
+		*(*(Error_vector+1)+a) = (*(*(Error_vector+1)+a) + 1)%2;    // Z erroræ™‚,å†è©²qubitè£œä¸Šä¸€å€‹error count
 	//	cout << "Z error on " << a+1 << endl;
 	}
 	if( B==4 ){
-		*(*(Error_vector+0)+a) = (*(*(Error_vector+0)+a) + 1)%2;    // Y error®É,¦A¸Óqubit¸É¤W¤@­ÓX & Y error count
+		*(*(Error_vector+0)+a) = (*(*(Error_vector+0)+a) + 1)%2;    // Y erroræ™‚,å†è©²qubitè£œä¸Šä¸€å€‹X & Y error count
 		*(*(Error_vector+1)+a) = (*(*(Error_vector+1)+a) + 1)%2;
 	//	cout << "Y error on " << a+1 << endl;
 	}
@@ -319,13 +319,13 @@ int correct(int (*Error_vector)[n], int a, int B){
 int SQerror(int (*Error_vector)[n], int a, double probability){
     a = a - 1;
     r = next64()/(pow(2,64));
-    if( r < (probability/3) ){ // depolarizing channel, r < (1/3)*p µo¥Í X error
+    if( r < (probability/3) ){ // depolarizing channel, r < (1/3)*p ç™¼ç”Ÿ X error
         *(*(Error_vector+0)+a) = (*(*(Error_vector+0)+a) + 1)%2;
     }
-    if( r > (probability/3) && r < (2*probability/3) ){ // (1/3)*p < r < (2/3)*p µo¥Í Z error
+    if( r > (probability/3) && r < (2*probability/3) ){ // (1/3)*p < r < (2/3)*p ç™¼ç”Ÿ Z error
         *(*(Error_vector+1)+a) = (*(*(Error_vector+1)+a) + 1)%2;
     }
-    if( r > (2*probability/3) && r < (probability) ){ // (2/3)*p < r < p µo¥Í Y error
+    if( r > (2*probability/3) && r < (probability) ){ // (2/3)*p < r < p ç™¼ç”Ÿ Y error
         *(*(Error_vector+0)+a) = (*(*(Error_vector+0)+a) + 1)%2;
         *(*(Error_vector+1)+a) = (*(*(Error_vector+1)+a) + 1)%2;
     }
@@ -340,10 +340,10 @@ int TQerror(int (*Error_vector)[n], int a, int b, double probability){
 int CNOT(int (*Error_vector)[n], int a, int b){
     a = a - 1;
     b = b - 1;
-    if(Error_vector[0][a]==1){                                     // X error µo¥Í
+    if(Error_vector[0][a]==1){                                     // X error ç™¼ç”Ÿ
         Error_vector[0][b] = (Error_vector[0][b] + 1)%2;
     }
-    if(Error_vector[1][b]==1){    								   // Z error µo¥Í
+    if(Error_vector[1][b]==1){    								   // Z error ç™¼ç”Ÿ
         Error_vector[1][a] = (Error_vector[1][a] + 1)%2;
     }
     
@@ -354,7 +354,7 @@ int CNOT(int (*Error_vector)[n], int a, int b){
 int unflagged(int (*Error_vector)[n], double probability, double Gamma, double beta){
 				
      		for(int i=0; i<2; i++){
-                for(int j=9; j<n; j++)	Error_vector[i][j] = 0; // ¦b¶i¤J·sªº¹q¸ô¤§«e, ±Nerror vectorÂk¹s (²Ä¤@¦C: ¬ö¿ı X error, ²Ä¤G¦C: ¬ö¿ı Z error)
+                for(int j=9; j<n; j++)	Error_vector[i][j] = 0; // åœ¨é€²å…¥æ–°çš„é›»è·¯ä¹‹å‰, å°‡error vectoræ­¸é›¶ (ç¬¬ä¸€åˆ—: ç´€éŒ„ X error, ç¬¬äºŒåˆ—: ç´€éŒ„ Z error)
             }
 
 			CNOT(Error_vector, 1, 10);
@@ -609,7 +609,7 @@ int unflagged(int (*Error_vector)[n], double probability, double Gamma, double b
 int separate(int (*Error_vector)[n], double probability, double Gamma, double beta){
 				
      		for(int i=0; i<2; i++){
-                for(int j=9; j<n; j++)	Error_vector[i][j] = 0; // ¦b¶i¤J·sªº¹q¸ô¤§«e, ±Nerror vectorÂk¹s (²Ä¤@¦C: ¬ö¿ı X error, ²Ä¤G¦C: ¬ö¿ı Z error)
+                for(int j=9; j<n; j++)	Error_vector[i][j] = 0; // åœ¨é€²å…¥æ–°çš„é›»è·¯ä¹‹å‰, å°‡error vectoræ­¸é›¶ (ç¬¬ä¸€åˆ—: ç´€éŒ„ X error, ç¬¬äºŒåˆ—: ç´€éŒ„ Z error)
             }
 
 
